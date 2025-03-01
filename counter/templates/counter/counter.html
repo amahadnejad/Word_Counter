@@ -3,5 +3,28 @@
 {% block page_title %}Word Counter{% endblock page_title %}
 
 {% block content %}
-    <h1>hi</h1>
+    <div class="d-flex justify-content-center mt-5">
+        <div class="card" style="width: 50rem;">
+            <div class="card-header d-flex justify-content-center">
+                Word Counter App
+            </div>
+            <div class="card-body">
+                <h5 class="card-title d-flex justify-content-center">Enter Your Sentence To Count!</h5>
+                <input type="text" class="form-control mt-3" placeholder="Enter text">
+                <a href="#" class="btn btn-primary d-flex justify-content-center mt-3">Count</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-5">
+        <div class="card" style="width: 50rem;">
+            <div class="card-header d-flex justify-content-center">
+                Result
+            </div>
+            <div class="card-body">
+                <h5 class="card-title d-flex justify-content-center">Your Sentence Has 5 Words.</h5>
+
+            </div>
+        </div>
+    </div>
 {% endblock content %}
