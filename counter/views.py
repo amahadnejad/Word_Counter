@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def word_counter(request):
-    return HttpResponse("hi")
+    return render(request, 'counter/counter.html')
