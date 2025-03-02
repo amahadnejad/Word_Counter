@@ -14,3 +14,7 @@ def word_count_view(request):
         word_count = len(words)
 
     return render(request, "counter/counter.html", {"word_count": word_count, "text": text, "words": words})
+
+
+def about(request):
+    return render(request, 'counter/about.html')
