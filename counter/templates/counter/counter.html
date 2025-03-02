@@ -9,12 +9,13 @@
                 Word Counter App
             </div>
             <div class="card-body">
-                <h5 class="card-title d-flex justify-content-center">Enter Your Sentence To Count!</h5>
+                <h5 class="card-title text-center">Enter Your Sentence To Count!</h5>
                 <form method="POST" action="{% url 'word_count' %}">
                     {% csrf_token %}
-                    <input type="text" name="text" class="form-control mt-3" placeholder="Enter text" value="{{ text }}"
-                           required>
-                    <button type="submit" class="btn btn-primary d-flex justify-content-center mt-3">Count</button>
+                    <input type="text" name="text" class="form-control mt-3" placeholder="Enter text" value="{{ text }}" required>
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">Count</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -27,10 +28,15 @@
                     Result
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-center">Your sentence has {{ word_count }} words.</h5>
-                    {% for word in words %}
-                        <h6 class="card-title d-flex justify-content-center">{{ forloop.counter }} - {{ word }}</h6>
-                    {% endfor %}
+                    <h5 class="card-title text-center">Your sentence has {{ word_count }} words.</h5>
+                    <ul class="list-group mt-3">
+                        {% for word in words %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">{{ forloop.counter }}.</span>
+                                <span>{{ word }}</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
