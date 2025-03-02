@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import word_counter
+from .views import word_count_view
 
 urlpatterns = [
-    path('', word_counter, name='home')
+    path('', word_count_view, name='word_count')
 ]

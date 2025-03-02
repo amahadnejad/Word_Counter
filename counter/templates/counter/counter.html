@@ -10,21 +10,29 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title d-flex justify-content-center">Enter Your Sentence To Count!</h5>
-                <input type="text" class="form-control mt-3" placeholder="Enter text">
-                <a href="#" class="btn btn-primary d-flex justify-content-center mt-3">Count</a>
+                <form method="POST" action="{% url 'word_count' %}">
+                    {% csrf_token %}
+                    <input type="text" name="text" class="form-control mt-3" placeholder="Enter text" value="{{ text }}"
+                           required>
+                    <button type="submit" class="btn btn-primary d-flex justify-content-center mt-3">Count</button>
+                </form>
             </div>
         </div>
     </div>
 
-    <div class="d-flex justify-content-center mt-5">
-        <div class="card" style="width: 50rem;">
-            <div class="card-header d-flex justify-content-center">
-                Result
-            </div>
-            <div class="card-body">
-                <h5 class="card-title d-flex justify-content-center">Your Sentence Has 5 Words.</h5>
-
+    {% if word_count is not None %}
+        <div class="d-flex justify-content-center mt-5">
+            <div class="card" style="width: 50rem;">
+                <div class="card-header d-flex justify-content-center">
+                    Result
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-center">Your sentence has {{ word_count }} words.</h5>
+                    {% for word in words %}
+                        <h6 class="card-title d-flex justify-content-center">{{ forloop.counter }} - {{ word }}</h6>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock content %}
